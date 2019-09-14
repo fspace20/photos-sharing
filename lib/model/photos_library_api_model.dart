@@ -87,7 +87,13 @@ class PhotosLibraryApiModel extends Model {
   }
 
   Future<Album> createAlbum(String title) async {
-    // TODO(codelab): Implement this call.
+    // codelab step5
+    return client
+        .createAlbum(CreateAlbumRequest.fromTitle(title))
+        .then((Album album){
+       updateAlbums();
+       return album;
+    });
 
     return null;
   }
@@ -132,14 +138,20 @@ class PhotosLibraryApiModel extends Model {
 
   Future<BatchCreateMediaItemsResponse> createMediaItem(
       String uploadToken, String albumId, String description) {
-    // TODO(codelab): Implement this method.
-
-    return null;
-
+    // codelab step7
     // Construct the request with the token, albumId and description.
+    final BatchCreateMediaItemsRequest request =
+      BatchCreateMediaItemsRequest.inAlbum(uploadToken, albumId, description);
 
     // Make the API call to create the media item. The response contains a
     // media item.
+    return client
+        .batchCreateMediaItems(request)
+        .then((BatchCreateMediaItemsResponse response){
+        // print and return the response
+      print(response.newMediaItemResults[0].toJson());
+      return response;
+    });
   }
 
   UnmodifiableListView<Album> get albums =>
@@ -153,18 +165,17 @@ class PhotosLibraryApiModel extends Model {
     _albums.clear();
 
     // Add albums from the user's Google Photos account
-     var ownedAlbums = await _loadAlbums();
-     if (ownedAlbums != null) {
-       _albums.addAll(ownedAlbums);
-     }
+//     var ownedAlbums = await _loadAlbums();
+//     if (ownedAlbums != null) {
+//       _albums.addAll(ownedAlbums);
+//     }
 
-    /*
+    // codelab step9
     // Load albums from owned and shared albums
     final List<List<Album>> list =
     await Future.wait([_loadSharedAlbums(), _loadAlbums()]);
 
     _albums.addAll(list.expand((a) => a ?? []));
-    */
 
     notifyListeners();
     hasAlbums = true;
