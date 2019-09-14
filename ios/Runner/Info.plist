@@ -45,6 +45,7 @@
 	<false/>
     <key>NSCameraUsageDescription</key>
     <string>Taking photos to add them to a trip.</string>
+    <!-- Google Sign-in Section -->
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -52,9 +53,10 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>TODO_CODDELAB_ADD_REVERSE_CLIENT_ID_HERE</string>
+				<string>com.googleusercontent.apps.PROJECT_NUM-APP_ID</string>
 			</array>
 		</dict>
 	</array>
+	<!-- End of the Google Sign-in Section -->
 </dict>
 </plist>

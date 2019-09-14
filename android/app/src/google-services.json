@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "PROJECT_NUM",
+    "firebase_url": "https://PROJECT_NAME.firebaseio.com",
+    "project_id": "PROJECT_NAME",
+    "storage_bucket": "PROJECT_NAME.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:PROJECT_NUM:android:APP_ID",
+        "android_client_info": {
+          "package_name": "com.google.codelab.photos.sharing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "CLIENT_ID.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "API_KEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "CLIENT_ID.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
